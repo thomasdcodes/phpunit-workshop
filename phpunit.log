@@ -1,0 +1,17 @@
+Reservation Controller (App\Tests\Controller\ReservationController)
+ [x] Can init
+ [x] Can call show reservation
+
+Bowlingbahn
+ [x] Can init
+
+Bowlingbahnen List (App\Domain\Bowlingbahn\Model\BowlingbahnenList)
+ [x] Can init
+ [x] Can add bowlingbahn
+ [x] Can add two bowlingbahnen
+
+Show Free Bowlingbahnen For Time Service (App\Domain\Bowlingbahn\Service\ShowFreeBowlingbahnenForTimeService)
+ [x] Can init
+ [x] Can call show bowlingbahnen
+ [x] Show bowlingbahnen calls port
+
