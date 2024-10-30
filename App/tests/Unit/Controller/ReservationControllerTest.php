@@ -2,8 +2,9 @@
 
 namespace App\Tests\Controller;
 
-use App\Controller\ReservationController;
 use App\Domain\Bowlingbahn\Port\LoadAvailableBowlingbahnenPort;
+use App\Adapter\In\Controller\ReservationController;
+use App\Domain\Bowlingbahn\Port\ShowAvailableBowlingbahnenForTimeUseCase;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Twig\Environment;
@@ -12,8 +13,8 @@ class ReservationControllerTest extends TestCase
 {
     public function testCanInit(): void
     {
-        $portStub = $this->createStub(LoadAvailableBowlingbahnenPort::class);
-        $controller = new ReservationController($portStub);
+        $useCaseStub = $this->createStub(ShowAvailableBowlingbahnenForTimeUseCase::class);
+        $controller = new ReservationController($useCaseStub);
 
         $this->assertInstanceOf(ReservationController::class, $controller);
     }
@@ -21,7 +22,7 @@ class ReservationControllerTest extends TestCase
     public function testCanCallShowReservation(): void
     {
         // Arrange
-        $portMock = $this->createMock(LoadAvailableBowlingbahnenPort::class);
+        $useCaseMock = $this->createMock(ShowAvailableBowlingbahnenForTimeUseCase::class);
 
         $twigMock = $this->createMock(Environment::class);
 
@@ -29,11 +30,11 @@ class ReservationControllerTest extends TestCase
         $containerMock->method('has')->with('twig')->willReturn(true);
         $containerMock->method('get')->with('twig')->willReturn($twigMock);
 
-        $controller = new ReservationController($portMock);
+        $controller = new ReservationController($useCaseMock);
         $controller->setContainer($containerMock);
 
         // Expect
-        $portMock->expects($this->once())->method('loadBowlingbahnenByTime');
+        $useCaseMock->expects($this->once())->method('showBowlingbahnen');
         $twigMock->expects($this->once())->method('render');
 
         // Act

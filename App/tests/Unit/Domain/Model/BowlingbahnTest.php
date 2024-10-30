@@ -13,4 +13,13 @@ class BowlingbahnTest extends TestCase
 
         $this->assertInstanceOf(Bowlingbahn::class, $bowlingbahn);
     }
+
+    public function testCanSetAndGetName(): void
+    {
+        $bowlingbahn = new Bowlingbahn();
+
+        $bowlingbahn->setName('Bahn 1');
+
+        $this->assertEquals('Bahn 1', $bowlingbahn->getName());
+    }
 }

@@ -5,7 +5,6 @@ namespace App\Domain\Bowlingbahn\Service;
 use App\Domain\Bowlingbahn\Model\BowlingbahnenList;
 use App\Domain\Bowlingbahn\Port\LoadAvailableBowlingbahnenPort;
 use App\Domain\Bowlingbahn\Port\ShowAvailableBowlingbahnenForTimeUseCase;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @see ShowFreeBowlingbahnenForTimeServiceTest

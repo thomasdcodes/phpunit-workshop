@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controller;
+declare(strict_types=1);
 
-use App\Domain\Bowlingbahn\Port\LoadAvailableBowlingbahnenPort;
+namespace App\Adapter\In\Controller;
+
+use App\Domain\Bowlingbahn\Port\ShowAvailableBowlingbahnenForTimeUseCase;
 use App\Tests\Controller\ReservationControllerTest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class ReservationController extends AbstractController
 {
     public function __construct(
-        private LoadAvailableBowlingbahnenPort $loadAvailableBowlingbahnenPort,
+        private ShowAvailableBowlingbahnenForTimeUseCase $loadAvailableBowlingbahnenUseCase,
     )
     {
     }
@@ -23,7 +25,7 @@ class ReservationController extends AbstractController
     public function showReservations(): Response
     {
         return $this->render('reservation/show.html.twig', [
-            'bowlingbahnen' => $this->loadAvailableBowlingbahnenPort->loadBowlingbahnenByTime(new \DateTime()),
+            'bowlingbahnen' => $this->loadAvailableBowlingbahnenUseCase->showBowlingbahnen(new \DateTime()),
         ]);
     }
 }

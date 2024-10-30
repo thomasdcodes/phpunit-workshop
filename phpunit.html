@@ -51,6 +51,16 @@
         </style>
     </head>
     <body>
+        <h2>Bowlingbahnen Connection (App\Service\Database\Bowlingbahn\BowlingbahnenConnection)</h2>
+        <ul>
+            <li class="success">Can init</li>
+            <li class="success">Can load bowlingbahnen</li>
+        </ul>
+        <h2>Bowlingbahnen Repo (App\Adapter\Out\Database\BowlingbahnenRepo)</h2>
+        <ul>
+            <li class="success">Can init</li>
+            <li class="success">Can call get bowlingbahnen by time</li>
+        </ul>
         <h2>Reservation Controller (App\Tests\Controller\ReservationController)</h2>
         <ul>
             <li class="success">Can init</li>
@@ -59,6 +69,7 @@
         <h2>Bowlingbahn</h2>
         <ul>
             <li class="success">Can init</li>
+            <li class="success">Can set and get name</li>
         </ul>
         <h2>Bowlingbahnen List (App\Domain\Bowlingbahn\Model\BowlingbahnenList)</h2>
         <ul>
@@ -69,9 +80,13 @@
         <h2>Show Free Bowlingbahnen For Time Service (App\Domain\Bowlingbahn\Service\ShowFreeBowlingbahnenForTimeService)</h2>
         <ul>
             <li class="success">Can init</li>
-            <li class="defect">Can call show bowlingbahnen</li>
-            <li class="defect">Show bowlingbahnen calls port</li>
+            <li class="success">Can call show bowlingbahnen</li>
+            <li class="success">Show bowlingbahnen calls port</li>
             <li class="success">Get exception with history date</li>
+        </ul>
+        <h2>Bowlingbahnen Connection</h2>
+        <ul>
+            <li class="success">Can call load all with valid result</li>
         </ul>
     </body>
 </html>
